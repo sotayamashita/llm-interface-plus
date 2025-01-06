@@ -8,6 +8,8 @@ A Chrome extension that enhances ChatGPT and Claude with customizable prompt tem
 
 ## Preview
 
+### Supported LLMs
+
 <div align="center">
   <table>
     <tr>
@@ -17,6 +19,21 @@ A Chrome extension that enhances ChatGPT and Claude with customizable prompt tem
     <tr>
       <td><img src="media/chatgpt-preview.png" alt="ChatGPT Preview" width="400" /></td>
       <td><img src="media/claude-preview.png" alt="Claude Preview" width="400" /></td>
+    </tr>
+  </table>
+</div>
+
+### Prompt editing
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>New template</b></td>
+      <td align="center"><b>Edit template</b></td>
+    </tr>
+    <tr>
+      <td><img src="media/new-template-preview.png" alt="New template" width="400" /></td>
+      <td><img src="media/edit-template-preview.png" alt="Edit template" width="400" /></td>
     </tr>
   </table>
 </div>
