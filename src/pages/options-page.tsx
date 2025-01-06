@@ -431,31 +431,35 @@ export default function OptionsPage() {
                     >
                       {promptItem.title}
                     </h3>
-                    {promptItem.category && (
-                      <Badge
-                        variant="outline"
-                        className="mb-2"
-                        data-testid="prompt-list-item-category"
-                      >
-                        {promptItem.category}
-                      </Badge>
-                    )}
                     <p
-                      className="mb-4 line-clamp-2 overflow-y-auto text-sm text-muted-foreground"
+                      className="mb-4 line-clamp-4 text-sm text-muted-foreground"
                       data-testid="prompt-list-item-content"
                     >
                       {promptItem.content}
                     </p>
-                    <div className="flex justify-end space-x-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        data-testid="prompt-list-item-edit-button"
-                        onClick={() => onUserClickEdit(promptItem)}
-                      >
-                        <Pencil className="mr-1 size-4" /> Edit
-                      </Button>
-                      <DeleteButton promptId={promptItem.id} />
+
+                    <div className="flex items-center justify-between">
+                      <div>
+                        {promptItem.category && (
+                          <Badge
+                            variant="outline"
+                            data-testid="prompt-list-item-category"
+                          >
+                            {promptItem.category}
+                          </Badge>
+                        )}
+                      </div>
+                      <div className="flex space-x-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          data-testid="prompt-list-item-edit-button"
+                          onClick={() => onUserClickEdit(promptItem)}
+                        >
+                          <Pencil className="mr-1 size-4" /> Edit
+                        </Button>
+                        <DeleteButton promptId={promptItem.id} />
+                      </div>
                     </div>
                   </>
                 )}
