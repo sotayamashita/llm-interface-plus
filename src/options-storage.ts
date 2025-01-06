@@ -1,10 +1,10 @@
 import OptionsSync from "webext-options-sync";
-import { loadDefaultTemplates } from "@/lib/template-loader";
 
 export interface PromptTemplate {
   id: string;
   title: string;
   content: string;
+  category?: string; // Optional field for template categorization
 }
 
 export interface Options {
@@ -14,16 +14,8 @@ export interface Options {
   [key: string]: string | number | boolean;
 }
 
-// Convert default prompts to include IDs
-const defaultPromptsWithIds: PromptTemplate[] = loadDefaultTemplates().map(
-  (prompt) => ({
-    ...prompt,
-    id: `default-${prompt.title.toLowerCase().replace(/\s+/g, "-")}`,
-  }),
-);
-
 export const defaultOptions: Options = {
-  promptTemplatesJson: JSON.stringify(defaultPromptsWithIds),
+  promptTemplatesJson: JSON.stringify([]),
   theme:
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -48,6 +40,7 @@ export async function saveNewPrompt(newPrompt: Omit<PromptTemplate, "id">) {
   const promptWithId: PromptTemplate = {
     ...newPrompt,
     id: new Date().toISOString(),
+    category: newPrompt.category || "", // Empty string for uncategorized templates
   };
 
   await optionsStorage.set({
