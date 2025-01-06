@@ -91,6 +91,10 @@ Here are some websites you should refer to:
 
 ## Development
 
+### Design
+
+- [Design file is on Figma](https://www.figma.com/design/t2iic9fWyuqYDNKcPUUskk/llm-interface-plus?node-id=0-1&t=W51G1JKLVTEx98F8-1)
+
 ### Managing Templates
 
 1. Click the extension icon to open options
