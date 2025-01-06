@@ -41,6 +41,7 @@ A Chrome extension that enhances ChatGPT and Claude with customizable prompt tem
 ## Features
 
 - 📝 **Prompt Templates**: Create, edit, and manage reusable prompt templates
+- 🏷️ **Categories**: Organize templates with categories and filter by category
 - 💾 **Template Backup**: Import and export templates for backup and sharing
 - 🎨 **Modern UI**: Built with Shadcn UI and Tailwind CSS for a beautiful interface
 - 🌓 **Dark Mode Support**: Automatic theme detection with manual override option
