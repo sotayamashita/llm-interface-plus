@@ -36,11 +36,13 @@ export default function OptionsPage() {
     null,
   );
   const [theme, setTheme] = useState<Options["theme"]>(defaultOptions.theme);
+  const [enableTemplateInjection, setEnableTemplateInjection] = useState(true);
 
   useEffect(() => {
     getPromptTemplates().then(setPromptList);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     optionsStorage.getAll().then(async (options: any) => {
+      setEnableTemplateInjection(!!options.enableTemplateInjection);
       // If this is the first time loading (using default theme), check system preference
       if (options.theme === defaultOptions.theme) {
         const isDark = window.matchMedia(
@@ -143,6 +145,17 @@ export default function OptionsPage() {
             >
               <SiGithub className="size-4" />
             </a>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={async () => {
+              const newVal = !enableTemplateInjection;
+              setEnableTemplateInjection(newVal);
+              await optionsStorage.set({ enableTemplateInjection: newVal });
+            }}
+          >
+            {enableTemplateInjection ? "ON" : "OFF"}
           </Button>
           <Button
             variant="ghost"

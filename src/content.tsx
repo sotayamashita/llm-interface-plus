@@ -3,7 +3,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { getPromptTemplates } from "./options-storage";
+import optionsStorage, { getPromptTemplates } from "./options-storage";
 import { cn } from "./lib/utils";
 import type { FC } from "react";
 import {
@@ -203,6 +203,11 @@ const waitForElement = (selector: string, timeout = 5000): Promise<Element> => {
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const initializeTemplateButton = async () => {
+  const options = await optionsStorage.getAll();
+  if (!options.enableTemplateInjection) {
+    return; // Early return if injection is disabled
+  }
+
   const sonnetButton = await waitForElement(
     '[data-testid="model-selector-dropdown"]',
   );

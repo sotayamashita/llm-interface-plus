@@ -84,5 +84,8 @@
   "lint-staged": {
     "*": "prettier --write --ignore-unknown",
     "*.{js,jsx,ts,tsx}": "eslint --fix"
+  },
+  "optionalDependencies": {
+    "@parcel/watcher-linux-x64-glibc": "^2.5.0"
   }
 }

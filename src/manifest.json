@@ -32,5 +32,9 @@
     "service_worker": "background.ts",
     "type": "module",
     "scripts": ["background.ts"]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
   }
 }
