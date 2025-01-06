@@ -21,6 +21,19 @@ A Chrome extension that enhances ChatGPT and Claude with customizable prompt tem
   </table>
 </div>
 
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>New template</b></td>
+      <td align="center"><b>Edit template</b></td>
+    </tr>
+    <tr>
+      <td><img src="media/new-template-preview.png" alt="New template" width="400" /></td>
+      <td><img src="media/edit-template-preview.png" alt="Edit template" width="400" /></td>
+    </tr>
+  </table>
+</div>
+
 ## Features
 
 - 📝 **Prompt Templates**: Create, edit, and manage reusable prompt templates
