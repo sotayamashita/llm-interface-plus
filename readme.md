@@ -8,6 +8,8 @@ A Chrome extension that enhances ChatGPT and Claude with customizable prompt tem
 
 ## Preview
 
+### Supported LLMs
+
 <div align="center">
   <table>
     <tr>
@@ -20,6 +22,8 @@ A Chrome extension that enhances ChatGPT and Claude with customizable prompt tem
     </tr>
   </table>
 </div>
+
+### Prompt editing
 
 <div align="center">
   <table>
