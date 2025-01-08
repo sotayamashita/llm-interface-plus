@@ -16,10 +16,18 @@
     "128": "icon.png"
   },
   "permissions": ["storage"],
-  "host_permissions": ["https://claude.ai/*", "https://chatgpt.com/*"],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://claude.ai/[!settings]/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://claude.ai/*", "https://chatgpt.com/*"],
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://claude.ai/[!settings]/*"
+      ],
       "js": ["content.tsx"],
       "run_at": "document_end"
     }
