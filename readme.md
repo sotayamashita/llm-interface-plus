@@ -79,7 +79,7 @@ Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-star
 
 #### Manually
 
-You can also [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi) or [Firefox](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#mozilla-firefox).
+You can also [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi)
 
 ### 📕 Read the documentation
 
@@ -87,7 +87,7 @@ Here are some websites you should refer to:
 
 - [Parcel’s Web Extension transformer documentation](https://parceljs.org/recipes/web-extension/)
 - [Chrome extensions’ API list](https://developer.chrome.com/docs/extensions/reference/)
-- A lot more links in my [Awesome WebExtensions](https://github.com/fregante/Awesome-WebExtensions) list
+- A lot more links in [fregante](https://github.com/fregante)'s [Awesome WebExtensions](https://github.com/fregante/Awesome-WebExtensions) list
 
 ## Development
 
