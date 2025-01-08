@@ -95,6 +95,13 @@ export const initializeTemplateButton = async () => {
 
 export const initializeChatGPT = async () => {
   try {
+    const options = await (await import("@/options-storage")).default.getAll();
+    // Check if ChatGPT template injection is disabled
+    if (!options.enableChatGPTInjection) {
+      console.log("Template injection is disabled for ChatGPT. Exiting...");
+      return;
+    }
+
     await waitForElement('button[aria-label="Search the web"]');
     await sleep(500);
     await initializeTemplateButton();

@@ -10,6 +10,9 @@ export interface PromptTemplate {
 export interface Options {
   promptTemplatesJson: string;
   theme: "light" | "dark";
+  enableTemplateInjection: boolean;
+  enableClaudeInjection: boolean;
+  enableChatGPTInjection: boolean;
   [key: string]: string | number | boolean;
 }
 
@@ -20,6 +23,9 @@ export const defaultOptions: Options = {
     window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light",
+  enableTemplateInjection: true,
+  enableClaudeInjection: true,
+  enableChatGPTInjection: true,
 };
 
 const optionsStorage = new OptionsSync<Options>({

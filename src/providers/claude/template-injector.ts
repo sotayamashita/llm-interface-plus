@@ -90,6 +90,13 @@ const initializeTemplateButton = async () => {
 
 export const initializeClaude = async () => {
   try {
+    const options = await (await import("@/options-storage")).default.getAll();
+    // Check if Claude template injection is disabled
+    if (!options.enableClaudeInjection) {
+      console.log("Template injection is disabled for Claude. Exiting...");
+      return;
+    }
+
     await waitForElement('[data-testid="style-selector-dropdown"]');
     await sleep(500);
     await initializeTemplateButton();

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
 import {
   saveNewPrompt,
   getPromptTemplates,
@@ -34,11 +35,28 @@ export default function OptionsPage() {
     null,
   );
   const [theme, setTheme] = useState<Options["theme"]>(defaultOptions.theme);
+  const [claudeInjectionEnabled, setClaudeInjectionEnabled] = useState<boolean>(
+    defaultOptions.enableClaudeInjection,
+  );
+  const [chatGPTInjectionEnabled, setChatGPTInjectionEnabled] =
+    useState<boolean>(defaultOptions.enableChatGPTInjection);
 
   useEffect(() => {
     getPromptTemplates().then(setPromptList);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     optionsStorage.getAll().then(async (options: any) => {
+      // Load injection states
+      setClaudeInjectionEnabled(
+        typeof options.enableClaudeInjection !== "undefined"
+          ? options.enableClaudeInjection
+          : defaultOptions.enableClaudeInjection,
+      );
+      setChatGPTInjectionEnabled(
+        typeof options.enableChatGPTInjection !== "undefined"
+          ? options.enableChatGPTInjection
+          : defaultOptions.enableChatGPTInjection,
+      );
+
       // If this is the first time loading (using default theme), check system preference
       if (options.theme === defaultOptions.theme) {
         const isDark = window.matchMedia(
@@ -265,6 +283,32 @@ export default function OptionsPage() {
             style={{ display: "none" }}
             onChange={handleFileChange}
           />
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-sm">Enable Claude Injection</span>
+              <Switch
+                checked={claudeInjectionEnabled}
+                onCheckedChange={async (checked) => {
+                  setClaudeInjectionEnabled(checked);
+                  await optionsStorage.set({ enableClaudeInjection: checked });
+                }}
+                id="claude-injection-toggle"
+                data-testid="claude-injection-toggle"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm">Enable ChatGPT Injection</span>
+              <Switch
+                checked={chatGPTInjectionEnabled}
+                onCheckedChange={async (checked) => {
+                  setChatGPTInjectionEnabled(checked);
+                  await optionsStorage.set({ enableChatGPTInjection: checked });
+                }}
+                id="chatgpt-injection-toggle"
+                data-testid="chatgpt-injection-toggle"
+              />
+            </div>
+          </div>
           <Button variant="ghost" size="icon" asChild>
             <a
               href="https://github.com/sotayamashita/refind-claude"
