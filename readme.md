@@ -57,7 +57,7 @@ A Chrome extension that supercharges ChatGPT and Claude through customizable pro
 
 ## Development
 
-### Tech Stack
+### 🧰 Tech Stack
 
 - TypeScript for type-safe code
 - React for UI components
@@ -66,7 +66,7 @@ A Chrome extension that supercharges ChatGPT and Claude through customizable pro
 - Chrome Extension Manifest V3
 - Playwright for E2E testing
 
-### Design
+### 🎨 Design
 
 - [Design file is on Figma](https://www.figma.com/design/t2iic9fWyuqYDNKcPUUskk/llm-interface-plus?node-id=0-1&t=W51G1JKLVTEx98F8-1)
 
