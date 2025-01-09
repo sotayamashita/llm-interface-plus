@@ -15,7 +15,7 @@
     "fix:eslint": "npm run lint:eslint -- --fix",
     "fix:prettier": "npm run lint:prettier -- --write",
     "test": "run-p lint:* build",
-    "e2e": "playwright test",
+    "test:e2e": "playwright test",
     "cm": "cz"
   },
   "dependencies": {
