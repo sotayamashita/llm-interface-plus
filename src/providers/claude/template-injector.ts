@@ -17,8 +17,18 @@ const handleTemplateSelect = (template: Template) => {
       editor.innerHTML = "";
     }
 
-    // Split content by newlines and create paragraph elements
-    const lines = template.content.split("\n");
+    // Split content by newlines and filter out empty lines at the beginning
+    const lines = template.content
+      .split("\n")
+      .reduce((acc: string[], line: string) => {
+        // Skip empty lines at the beginning
+        if (acc.length === 0 && line.trim() === "") {
+          return acc;
+        }
+        acc.push(line);
+        return acc;
+      }, []);
+
     let lastParagraph: HTMLElement | null = null;
 
     lines.forEach((line) => {
