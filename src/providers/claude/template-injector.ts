@@ -17,15 +17,34 @@ const handleTemplateSelect = (template: Template) => {
       editor.innerHTML = "";
     }
 
-    const p = document.createElement("p");
-    p.textContent = template.content;
-    editor.append(p);
+    // Split content by newlines and filter out empty lines at the beginning
+    const lines = template.content
+      .split("\n")
+      .reduce((acc: string[], line: string) => {
+        // Skip empty lines at the beginning
+        if (acc.length === 0 && line.trim() === "") {
+          return acc;
+        }
+        acc.push(line);
+        return acc;
+      }, []);
+
+    let lastParagraph: HTMLElement | null = null;
+
+    lines.forEach((line) => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      editor.append(p);
+      lastParagraph = p;
+    });
+
     editor.focus();
 
+    // Set cursor at the end of the last paragraph
     const selection = window.getSelection();
-    if (selection) {
+    if (selection && lastParagraph) {
       const range = document.createRange();
-      range.selectNodeContents(p);
+      range.selectNodeContents(lastParagraph);
       range.collapse(false);
       selection.removeAllRanges();
       selection.addRange(range);
